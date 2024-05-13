@@ -8,20 +8,8 @@
     "48": "icon.png",
     "128": "icon.png"
   },
-  "action": {
-    "default_popup": "popup.html",
-    "default_title": "AdBlock Extension",
-    "default_icon": "icon.png"
-  },
-  "permissions": [
-    "webRequest",
-    "webRequestBlocking",
-    "<all_urls>",
-    "*://*.googleadservices.com/**",
-    "*://*.tpc.googlesyndication.com/**",
-    "*://securepubads.g.doubleclick.net/**"
-  ],
-  "options_page": "options.html",
+
+  "permissions": ["webRequest", "webRequestBlocking", "<all_urls>"],
   "background": {
     "service_worker": "background.js"
   },

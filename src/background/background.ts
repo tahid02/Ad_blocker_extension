@@ -1,14 +1,22 @@
+// IMPORTANT: Find the ad serving urls here : https://easylist.to/easylist/easylist.txt
+
 chrome.webRequest.onBeforeRequest.addListener(
   (details) => {
-    console.log(details);
-    return { cancel: true };
+    const url = details.url;
+    const filters = ["googleadservices", "googlesyndication", "g.doubleclick"];
+    for (const filter of filters) {
+      if (url.indexOf(filter) != -1) {
+        return {
+          cancel: true,
+        };
+      }
+    }
+    return {
+      cancel: false,
+    };
   },
   {
-    urls: [
-      "*://*.googleadservices.com/**",
-      "*://*.tpc.googlesyndication.com/**",
-      "*://securepubads.g.doubleclick.net/**",
-    ],
+    urls: ["<all_urls>"],
   },
   ["blocking"]
 );
